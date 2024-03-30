@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",
+    "build-vercel": "echo hello",
     "start": "node dist/server.js"
   },
   "keywords": [],
