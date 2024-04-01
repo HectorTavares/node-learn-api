@@ -16,7 +16,7 @@ export function ProductService() {
     description: string,
     price: number
   ) => {
-    if (!title || !price) throw new Error("Incorrect data");
+    if (!title || !price) throw new RequestError("Dados Incorretos", 400);
 
     const product = await prismaClient.product.create({
       data: {
@@ -30,7 +30,7 @@ export function ProductService() {
   };
 
   const deleteProduct = async (id: string) => {
-    if (!id) throw new Error("Incorrect data");
+    if (!id) throw new RequestError("Dados Incorretos", 400);
 
     const product = await prismaClient.product.findFirst({
       where: {
@@ -61,7 +61,7 @@ export function ProductService() {
     description: string
   ) => {
     if (!id || !title || !description || !price)
-      throw new Error("Incorrect data");
+      throw new RequestError("Dados Incorretos", 400);
 
     const product = await prismaClient.product.update({
       where: {

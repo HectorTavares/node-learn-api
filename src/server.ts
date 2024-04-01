@@ -1,6 +1,7 @@
 import "express-async-errors";
 import express from "express";
 import ProductRoute from "./routes/products";
+import UserRoute from "./routes/user";
 import { errorMiddleware } from "./middlewares/error";
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(
 );
 
 app.use("/product", ProductRoute);
+app.use("/user", UserRoute);
 
 app.use(errorMiddleware);
 
