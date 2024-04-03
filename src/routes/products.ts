@@ -11,8 +11,11 @@ const { createProduct, getProducts, deleteProduct, updateProduct } =
   ProductService();
 
 productRouter.get("/", async (req, res) => {
+  console.log("chegou aqui");
+
   const products = await getProducts();
 
+  console.log("chegou aqui 2");
   res.status(200).send(products);
 });
 
